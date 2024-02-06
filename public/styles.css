@@ -1,0 +1,76 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    border: 25px solid blue; /* Add the blue border around the whole content */
+    display: flex;
+    flex-direction: column; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    align-items: center;
+    min-height: 100vh; /* Ensure the body covers the viewport height */
+    background-color: #f0f0f0;
+}
+
+.container {
+    text-align: center;
+    max-width: 600px;
+    margin: auto; /* Center the container horizontally */
+    padding: 20px;
+}
+
+.header {
+    font-size: 7em;
+    color: blue;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 2em;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#thankYouMessage {
+    color: green;
+    font-size: 1em;
+    margin-top: 10px;
+    display: none;
+}
+
+input[type="text"],
+input[type="email"] {
+    font-size: 1.8em;
+}
+
+label {
+    font-size: 2em;
+}
+
+button[type="submit"] {
+    font-size: 1.8em;
+    padding: 15px 25px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    font-size: 1em;
+    font-style: italic;
+}
+
+.home-link,
+.second_link-link { /* Update the class name to match your link */
+    font-size: 2em; /* Adjust the font size as needed */
+    color: blue; /* Change the color to your preferred color */
+    margin: 10px; /* Add some margin to separate the links */
+}
+
+.second_link-link {
+    margin-left: auto;
+}

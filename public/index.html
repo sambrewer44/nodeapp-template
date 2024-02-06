@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name of Website</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <div class="container">
+        <!-- Main content container -->
+
+        <!-- Home hyperlink -->
+        <a href="/" class="home-link">Home</a>
+        <a href="/your_second_link_name" class="your_second_link_name">your_second_link_name</a> <!-- Corrected class name -->
+
+        <!-- Header -->
+        <h1 class="header">Header</h1>
+
+        <!-- Additional text -->
+        <p>Please fill out your name and email address in the form below.</p>
+
+        <!-- Name and Email submission form -->
+        <form id="submissionForm" action="/submit" method="post">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+            <button type="submit">Submit</button>
+            <!-- Thank you message container -->
+            <div id="thankYouMessage" style="display: none;">Thank you for submitting!</div>
+        </form>
+    </div>
+
+    <!-- JavaScript code for form submission and thank you message -->
+    <script>
+        document.getElementById('submissionForm').addEventListener('submit', async (event) => {
+            event.preventDefault(); // Prevent default form submission behavior
+           
+            // Submit form data to server
+            const response = await fetch('/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value
+                })
+            });
+
+            // Check if form submission was successful
+            if (response.ok) {
+                // Show thank you message
+                document.getElementById('thankYouMessage').style.display = 'block';
+                // Optionally, reset form fields
+                document.getElementById('name').value = '';
+                document.getElementById('email').value = '';
+            } else {
+                // Handle error
+                console.error('Error:', response.statusText);
+            }
+        });
+    </script>
+</body>
+</html>
